@@ -25,12 +25,12 @@
       padding-bottom: 100px;
     }
 
-    /* 1. MINDRE OVERLAY (Ljusare) */
+    /* 1. MINDRE OVERLAY (Ljusare - mer av bilden syns) */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.75); /* Återställd från 0.88 till 0.75 */
+      background: rgba(0, 0, 0, 0.65);
       z-index: -1;
     }
 
@@ -303,26 +303,38 @@
       cursor: pointer;
     }
 
-    /* --- SPECIFIKT FÖR GDPR MODAL (Bredare och vänsterställd text) --- */
+    /* --- SPECIFIKT FÖR GDPR MODAL --- */
     #gdprModal .modal-content {
       max-width: 500px;
       text-align: left;
+      padding: 40px 25px;
     }
 
     #gdprModal h3 {
       text-align: center;
       margin-top: 0;
       color: #fff;
+      margin-bottom: 20px;
+      font-size: 20px;
     }
 
-    #gdprModal p, #gdprModal ul {
+    #gdprModal h4 {
+      color: #fff;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    #gdprModal p {
       color: #ccc;
       font-size: 13px;
       line-height: 1.6;
+      margin-bottom: 15px;
     }
 
-    #gdprModal strong {
+    #gdprModal a {
       color: #fff;
+      text-decoration: underline;
     }
 
     /* --- SHARE MODAL --- */
@@ -407,7 +419,7 @@
 
   <!-- WHATSAPP KNAPP (ÖVRE VÄNSTER) -->
   <a href="https://wa.me/46701619978?text=I%20am%20interested%20in" target="_blank" class="wa-link">
-    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.882-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
   <!-- SHARE KNAPP (ÖVRE HÖGER) -->
@@ -462,10 +474,9 @@
       </a>
     </div>
 
-    <!-- FOOTER (Länkar till GDPR) -->
+    <!-- FOOTER -->
     <div class="footer-legal">
       <div class="footer-links">
-        <!-- Klickar här öppnas GDPR modalen -->
         <a href="#" onclick="toggleModal('gdprModal', true); return false;">Privacy Policy</a>
         <a href="#">Cookie Preferences</a>
       </div>
@@ -507,137 +518,86 @@
       
       <button class="copy-link-btn">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2  v2zM3 6h18v2H6zm0 4h18v2H6zm0 4h18v2H6z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
         </svg>
-        Kopiera länk
+        Copy Link
       </button>
       
       <div class="social-icons">
-        <a href="https://facebook.com" class="social-icon" target="_blank">f</a>
-        <a href="https://twitter.com" class="social-icon" target="_blank">t</a>
-        <a href="https://instagram.com" class="social-icon" target="_blank">&#x263a;</a>
-        <a href="https://linkedin.com" class="social-icon" target="_blank">in</a>
+        <a href="#" class="social-icon">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+        <a href="#" class="social-icon">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- MODAL 2: GDPR -->
+  <!-- MODAL 2: QR KOD -->
+  <div class="modal-overlay" id="qrModal" onclick="if(event.target === this) toggleModal('qrModal', false)">
+    <div class="modal-content">
+      <button class="close-modal" onclick="toggleModal('qrModal', false)">&times;</button>
+      <h3 style="margin-top:0">Scan QR Code</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://linktr.ee/jonashylten" alt="QR Code" class="qr-display-img">
+      <p style="font-size:12px; color:#666">jonashylten</p>
+    </div>
+  </div>
+
+  <!-- MODAL 3: FULL GDPR TEXT -->
   <div class="modal-overlay" id="gdprModal" onclick="if(event.target === this) toggleModal('gdprModal', false)">
     <div class="modal-content">
       <button class="close-modal" onclick="toggleModal('gdprModal', false)">&times;</button>
       
-      <h3>Integritetspolicy / GDPR</h3>
+      <h3>Privacy Policy</h3>
       
-      <p><strong>Dataansvarig:</strong> Jonas Hyltén</p>
-      <p><strong>Kontakt:</strong> jonas@roials.co</p>
+      <p><strong>Last updated: March 2026</strong></p>
       
-      <p>Vi värnar om din integritet och efterlever GDPR (General Data Protection Regulation) fullt ut. Denna policy beskriver hur vi samlar in, använder, delar och skyddar din personliga information.</p>
+      <p>At Jonas Hyltén, accessible from jonas@roials.co, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded and how we use it.</p>
       
-      <h4>Vilken information samlar vi in?</h4>
-      <ul>
-        <li>Information du frivilligt tillhandahåller (t.ex. namn, e-post, telefonnummer vid kontakt)</li>
-        <li>Teknisk information vid besök på webbplatsen (IP-adress, webbläsartyp, enhet)</li>
-        <li>Cookies och liknande tekniker för att förbättra användarupplevelsen</li>
-      </ul>
+      <h4>1. Information We Collect</h4>
+      <p>We collect information you provide directly to us when you fill out a form, use our "Save Contact" feature, or contact us via WhatsApp. This may include your name, email address, phone number, and any other information you choose to provide.</p>
       
-      <h4>Hur använder vi din information?</h4>
-      <ul>
-        <li>För att tillhandahålla och förbättra våra tjänster</li>
-        <li>För att kommunicera med dig om tjänster du har begärt</li>
-        <li>För att uppfylla rättsliga förpliktelser</li>
-        <li>För att förhindra bedrägeri och säkerställa säkerhet</li>
-      </ul>
+      <h4>2. How We Use Your Information</h4>
+      <p>We use the information we collect to communicate with you, respond to your inquiries, and provide the services or information you request.</p>
       
-      <h4>Delning av information</h4>
-      <p>Vi säljer eller hyr inte ut din personliga information till tredje part. Vi kan dela information med:</p>
-      <ul>
-        <li>Betrodda tjänsteleverantörer som hjälper oss att driva vår verksamhet</li>
-        <li>När det krävs enligt lag eller för att skydda våra rättigheter</li>
-        <li>I samband med fusion, förvärv eller försäljning av tillgångar</li>
-      </ul>
+      <h4>3. Data Controller</h4>
+      <p>Jonas Hyltén is the data controller responsible for this website.</p>
       
-      <h4>Dina rättigheter</h4>
-      <p>Du har rätt att:</p>
-      <ul>
-        <li>Få tillgång till den information vi har om dig</li>
-        <li>Begära rättelse av felaktig information</li>
-        <li>Begära radering av din information ("rätt att bli glömd")</li>
-        <li>Invända mot eller begränsa viss typ av behandling</li>
-        <li>Få ut och överföra din data till en annan tjänst (dataportabilitet)</li>
-        <li>Återkalla ditt samtycke när som helst</li>
-      </ul>
+      <h4>4. Contact Us</h4>
+      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+      <p style="color:white; text-decoration:underline;">jonas@roials.co</p>
       
-      <h4>Cookies</h4>
-      <p>Vi använder cookies för att förbättra din upplevelse på vår webbplats. Du kan hantera cookies via din webbläsares inställningar.</p>
-      
-      <h4>Datasäkerhet</h4>
-      <p>Vi vidtar lämpliga tekniska och organisatoriska åtgärder för att skydda din information mot obehörig tillgång, ändring, avslöjande eller förstörelse.</p>
-      
-      <h4>Internationell dataöverföring</h4>
-      <p>Din information kan komma att överföras till och behandlas i länder utanför EU/ESS. Vi säkerställer att lämpliga skyddsåtgärder finns på plats.</p>
-      
-      <h4>Ändringar av denna policy</h4>
-      <p>Vi förbehåller oss rätten att uppdatera denna integritetspolicy. Ändringar kommer att publiceras på denna sida.</p>
-      
-      <p><strong>Senast uppdaterad:</strong> 2026-03-23</p>
-      
-      <p>Vid frågor om denna integritetspolicy, kontakta oss på: <a href="mailto:jonas@roials.co">jonas@roials.co</a></p>
+      <p>We will respond to your inquiries regarding your personal data within a reasonable timeframe.</p>
     </div>
   </div>
 
-  <!-- MODAL 3: QR -->
-  <div class="modal-overlay" id="qrModal" onclick="if(event.target === this) toggleModal('qrModal', false)">
-    <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('qrModal', false)">&times;</button>
-      
-      <h3>Skanna QR-kod</h3>
-      
-      <img src="https://i.postimg.cc/0QNyRy7s/qrcode.png" alt="QR kod för Jonas Hyltén" class="qr-display-img">
-      
-      <p>Skanna för att spara kontakt eller besöka profilen</p>
-      
-      <button onclick="toggleModal('qrModal', false)" style="margin-top: 15px; padding: 10px 20px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">Stäng</button>
-    </div>
-  </div>
-
+  <!-- JAVASCRIPT -->
   <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const container = document.getElementById('mainContainer');
+        if(container) {
+          container.classList.add('animate-active');
+        }
+      }, 50);
+    });
+
     function toggleModal(modalId, show) {
       const modal = document.getElementById(modalId);
       if (show) {
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        
-        // Lägg till animation för huvudcontainer när meny öppnas
-        if (modalId !== 'shareModal') {
-          const mainContainer = document.getElementById('mainContainer');
-          mainContainer.classList.add('animate-active');
-        }
       } else {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
       }
     }
-    
-    // Kopiera länk funktion
-    document.querySelector('.copy-link-btn').addEventListener('click', function() {
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        // Tillfälligt ändra knapptexten
-        const originalText = this.innerHTML;
-        this.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Kopierad!';
-        setTimeout(() => {
-          this.innerHTML = originalText;
-        }, 2000);
-      }).catch(err => {
-        console.error('Kunde inte kopiera: ', err);
-      });
-    });
-    
-    // Animera in huvudinnehållet när sidan laddas
-    document.addEventListener('DOMContentLoaded', function() {
-      const mainContainer = document.getElementById('mainContainer');
-      mainContainer.classList.add('animate-active');
-    });
   </script>
+
 </body>
 </html>
