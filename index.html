@@ -50,7 +50,7 @@
       left: 0;
       height: 100%;
       background: #C4A265;
-      animation: loadProgress 1.4s ease-in-out forwards;
+      animation: loadProgress 2.1s ease-in-out forwards;
     }
 
     @keyframes loadProgress {
@@ -65,7 +65,7 @@
       text-transform: uppercase;
       letter-spacing: 4px;
       color: rgba(255,255,255,0.6);
-      animation: textPulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation: textPulse 2.1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
     @keyframes textPulse {
@@ -710,13 +710,13 @@
         if(loader) {
           loader.classList.add('hidden');
         }
-      }, 1400);
+      }, 2100);
       setTimeout(() => {
         const container = document.getElementById('mainContainer');
         if(container) {
           container.classList.add('animate-active');
         }
-      }, 1450);
+      }, 2150);
     });
 
     function toggleModal(modalId, show) {
