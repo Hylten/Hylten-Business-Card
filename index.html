@@ -12,7 +12,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.98);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -27,25 +27,50 @@
     }
 
     .loader-avatar {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.3);
-      margin-bottom: 20px;
+      border: 2px solid rgba(196, 162, 101, 0.4);
+      margin-bottom: 30px;
     }
 
-    .loader-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+    .loader-progress {
+      width: 200px;
+      height: 2px;
       background: rgba(255,255,255,0.1);
-      animation: pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.95); }
+    .loader-progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #C4A265;
+      animation: loadProgress 1.4s ease-in-out forwards;
+    }
+
+    @keyframes loadProgress {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    .loader-text {
+      margin-top: 15px;
+      font-family: monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.6);
+      animation: textPulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes textPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.3; }
     }
 
     /* --- GRUNDLÄGGANDE STIL --- */
@@ -476,7 +501,10 @@
   <!-- LOADER -->
   <div class="loader" id="loader">
     <img src="https://i.postimg.cc/d3rwRypt/Jonas-Linked-In-bild-3-piece-suit-copy.png" alt="Jonas Hyltén" class="loader-avatar">
-    <div class="loader-logo"></div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+    <span class="loader-text">Initialising...</span>
   </div>
 
   <!-- WHATSAPP KNAPP (ÖVRE VÄNSTER) -->
