@@ -303,36 +303,38 @@
       cursor: pointer;
     }
 
-    /* --- SPECIFIKT FÖR GDPR MODAL --- */
-    #gdprModal .modal-content {
+    /* --- LEGAL MODALS --- */
+    .legal-modal .modal-content {
       max-width: 500px;
       text-align: left;
-      padding: 40px 25px;
+      padding: 35px 20px;
+      max-height: 80vh;
     }
 
-    #gdprModal h3 {
+    .legal-modal h3 {
       text-align: center;
       margin-top: 0;
       color: #fff;
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-
-    #gdprModal h4 {
-      color: #fff;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-
-    #gdprModal p {
-      color: #ccc;
-      font-size: 13px;
-      line-height: 1.6;
       margin-bottom: 15px;
+      font-size: 18px;
     }
 
-    #gdprModal a {
+    .legal-modal h4 {
+      color: #fff;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .legal-modal p {
+      color: #aaa;
+      font-size: 11px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .legal-modal a {
       color: #fff;
       text-decoration: underline;
     }
@@ -481,8 +483,9 @@
     <!-- FOOTER -->
     <div class="footer-legal">
       <div class="footer-links">
-        <a href="#" onclick="toggleModal('gdprModal', true); return false;">Privacy Policy</a>
-        <a href="#">Cookie Preferences</a>
+        <a href="#" onclick="toggleModal('privacyModal', true); return false;">Privacy Policy</a>
+        <a href="#" onclick="toggleModal('disclaimerModal', true); return false;">Regulatory Disclaimer</a>
+        <a href="#" onclick="toggleModal('cookieModal', true); return false;">Cookie Policy</a>
       </div>
     </div>
 
@@ -554,31 +557,64 @@
     </div>
   </div>
 
-  <!-- MODAL 3: FULL GDPR TEXT -->
-  <div class="modal-overlay" id="gdprModal" onclick="if(event.target === this) toggleModal('gdprModal', false)">
+  <!-- MODAL 3: PRIVACY POLICY -->
+  <div class="modal-overlay legal-modal" id="privacyModal" onclick="if(event.target === this) toggleModal('privacyModal', false)">
     <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('gdprModal', false)">&times;</button>
-      
+      <button class="close-modal" onclick="toggleModal('privacyModal', false)">&times;</button>
       <h3>Privacy Policy</h3>
+      <p><strong>Last Updated: March 2026</strong></p>
       
-      <p><strong>Last updated: March 2026</strong></p>
+      <h4>1. Data Controller</h4>
+      <p>Jonas Hyltén (jonas@roials.co) acts as the Data Controller for this domain.</p>
       
-      <p>At Jonas Hyltén, accessible from jonas@roials.co, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded and how we use it.</p>
+      <h4>2. Collection & Legal Basis</h4>
+      <p>We process personal data (name, email, phone, and communication logs) provided directly via contact forms, WhatsApp, or "Save Contact" features. Processing is conducted strictly under Legitimate Interest to administer institutional inquiries and execute M&A mandates.</p>
       
-      <h4>1. Information We Collect</h4>
-      <p>We collect information you provide directly to us when you fill out a form, use our "Save Contact" feature, or contact us via WhatsApp. This may include your name, email address, phone number, and any other information you choose to provide.</p>
+      <h4>3. Retention & Sharing</h4>
+      <p>Data is retained exclusively for the duration of the professional engagement or as required by statutory limitation periods. We do not sell data. Third-party disclosure occurs only when legally mandated.</p>
       
-      <h4>2. How We Use Your Information</h4>
-      <p>We use the information we collect to communicate with you, respond to your inquiries, and provide the services or information you request.</p>
+      <h4>4. Data Subject Rights</h4>
+      <p>Under GDPR, you hold rights to access, rectification, and erasure of your personal data. All formal requests are processed within 30 days.</p>
       
-      <h4>3. Data Controller</h4>
-      <p>Jonas Hyltén is the data controller responsible for this website.</p>
+      <h4>5. Jurisdiction & Contact</h4>
+      <p>This policy is governed by the laws of Sweden. Direct all data inquiries to: <a href="mailto:jonas@roials.co">jonas@roials.co</a>.</p>
+    </div>
+  </div>
+
+  <!-- MODAL 4: REGULATORY DISCLAIMER -->
+  <div class="modal-overlay legal-modal" id="disclaimerModal" onclick="if(event.target === this) toggleModal('disclaimerModal', false)">
+    <div class="modal-content">
+      <button class="close-modal" onclick="toggleModal('disclaimerModal', false)">&times;</button>
+      <h3>Regulatory Notice & Disclaimer</h3>
       
-      <h4>4. Contact Us</h4>
-      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-      <p style="color:white; text-decoration:underline;">jonas@roials.co</p>
+      <h4>1. Informational Purposes Only</h4>
+      <p>The information contained on this portal is for informational purposes only. It does not constitute an offer to sell, or a solicitation of an offer to buy, any securities or financial instruments.</p>
       
-      <p>We will respond to your inquiries regarding your personal data within a reasonable timeframe.</p>
+      <h4>2. No Advisory Relationship</h4>
+      <p>Content provided does not constitute investment, tax, or legal advice. Users must consult their own professional advisors prior to making any investment decisions.</p>
+      
+      <h4>3. Risk Acknowledgment</h4>
+      <p>Past performance is not indicative of future results. All investments involve substantial risk, including the potential loss of principal.</p>
+      
+      <h4>4. Restricted Access</h4>
+      <p>Access to specific investment vehicles or capital mandates linked through this site is strictly limited to Wholesale, Professional, and Accredited Investors as defined by applicable regulatory jurisdictions. Retail investors are explicitly excluded.</p>
+    </div>
+  </div>
+
+  <!-- MODAL 5: COOKIE POLICY -->
+  <div class="modal-overlay legal-modal" id="cookieModal" onclick="if(event.target === this) toggleModal('cookieModal', false)">
+    <div class="modal-content">
+      <button class="close-modal" onclick="toggleModal('cookieModal', false)">&times;</button>
+      <h3>Cookie Policy</h3>
+      
+      <h4>1. Essential Protocols</h4>
+      <p>This site uses strictly necessary cookies to ensure basic functionality, security, and the operation of the "Save Contact" feature. These cannot be disabled.</p>
+      
+      <h4>2. Analytics (Optional)</h4>
+      <p>We may use minimal, anonymized tracking to monitor institutional traffic and site performance. No personally identifiable information (PII) is sold or shared for advertising.</p>
+      
+      <h4>3. User Control</h4>
+      <p>By continuing to use this site, you consent to essential cookies.</p>
     </div>
   </div>
 
