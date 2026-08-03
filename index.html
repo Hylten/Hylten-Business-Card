@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.postimg.cc https://api.qrserver.com; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'" />
   <title>Jonas Hyltén</title>
   <style>
     /* --- LOADER --- */
@@ -575,7 +576,7 @@
   </a>
 
   <!-- SHARE KNAPP (ÖVRE HÖGER) -->
-  <button class="share-btn" onclick="toggleModal('shareModal', true)">
+  <button class="share-btn" data-modal-open="shareModal">
     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
     </svg>
@@ -620,7 +621,7 @@
         <span class="list-text">Hyltén Invest</span>
         <span class="list-arrow">&#8599;</span>
       </a>
-      <a href="https://www.linkedin.com/in/hylten" class="list-item" target="_blank" onclick="handleLinkClick(this, 1400); return false;">
+      <a href="https://www.linkedin.com/in/hylten" class="list-item" target="_blank" data-link-click>
         <span class="list-text">LinkedIn</span>
         <span class="list-arrow">&#8599;</span>
       </a>
@@ -629,9 +630,9 @@
     <!-- FOOTER -->
     <div class="footer-legal">
       <div class="footer-links">
-        <a href="#" onclick="toggleModal('privacyModal', true); return false;">Privacy Policy</a>
-        <a href="#" onclick="toggleModal('disclaimerModal', true); return false;">Regulatory Disclaimer</a>
-        <a href="#" onclick="toggleModal('cookieModal', true); return false;">Cookie Policy</a>
+        <a href="#" data-modal-open="privacyModal">Privacy Policy</a>
+        <a href="#" data-modal-open="disclaimerModal">Regulatory Disclaimer</a>
+        <a href="#" data-modal-open="cookieModal">Cookie Policy</a>
       </div>
     </div>
 
@@ -648,7 +649,7 @@
   </a>
 
   <!-- QR Trigger (Höger) -->
-  <div class="qr-trigger-float" onclick="toggleModal('qrModal', true)">
+  <div class="qr-trigger-float" data-modal-open="qrModal">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <rect x="0" y="0" width="11" height="11" rx="1" fill="white"/>
       <rect x="13" y="0" width="11" height="11" rx="1" fill="white"/>
@@ -658,9 +659,9 @@
   </div>
 
   <!-- MODAL 1: SHARE -->
-  <div class="modal-overlay" id="shareModal" onclick="if(event.target === this) toggleModal('shareModal', false)">
+  <div class="modal-overlay" id="shareModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('shareModal', false)">&times;</button>
+      <button class="close-modal" data-modal-close="shareModal">&times;</button>
       
       <div class="modal-header-text">Share Contact</div>
       
@@ -669,7 +670,7 @@
       <h3 class="modal-title">Jonas Hyltén</h3>
       <p class="modal-subtitle">The Architect Of Off-Market Alpha</p>
       
-      <button class="copy-link-btn" onclick="copyLink()">
+      <button class="copy-link-btn">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
         </svg>
@@ -694,9 +695,9 @@
   </div>
 
   <!-- MODAL 2: QR KOD -->
-  <div class="modal-overlay" id="qrModal" onclick="if(event.target === this) toggleModal('qrModal', false)">
+  <div class="modal-overlay" id="qrModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('qrModal', false)">&times;</button>
+      <button class="close-modal" data-modal-close="qrModal">&times;</button>
       <h3 style="margin-top:0">Scan QR Code</h3>
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://hylten.github.io/Hylten-Business-Card/" alt="QR Code" class="qr-display-img">
       <p style="font-size:12px; color:#666">Jonas Hyltén</p>
@@ -704,9 +705,9 @@
   </div>
 
   <!-- MODAL 3: PRIVACY POLICY -->
-  <div class="modal-overlay legal-modal" id="privacyModal" onclick="if(event.target === this) toggleModal('privacyModal', false)">
+  <div class="modal-overlay legal-modal" id="privacyModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('privacyModal', false)">&times;</button>
+      <button class="close-modal" data-modal-close="privacyModal">&times;</button>
       <h3>Privacy Policy</h3>
       <p><strong>Last Updated: March 2026</strong></p>
       
@@ -728,9 +729,9 @@
   </div>
 
   <!-- MODAL 4: REGULATORY DISCLAIMER -->
-  <div class="modal-overlay legal-modal" id="disclaimerModal" onclick="if(event.target === this) toggleModal('disclaimerModal', false)">
+  <div class="modal-overlay legal-modal" id="disclaimerModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('disclaimerModal', false)">&times;</button>
+      <button class="close-modal" data-modal-close="disclaimerModal">&times;</button>
       <h3>Regulatory Notice & Disclaimer</h3>
       
       <h4>1. Informational Purposes Only</h4>
@@ -748,9 +749,9 @@
   </div>
 
   <!-- MODAL 5: COOKIE POLICY -->
-  <div class="modal-overlay legal-modal" id="cookieModal" onclick="if(event.target === this) toggleModal('cookieModal', false)">
+  <div class="modal-overlay legal-modal" id="cookieModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="toggleModal('cookieModal', false)">&times;</button>
+      <button class="close-modal" data-modal-close="cookieModal">&times;</button>
       <h3>Cookie Policy</h3>
       
       <h4>1. Essential Protocols</h4>
@@ -765,62 +766,7 @@
   </div>
 
   <!-- JAVASCRIPT -->
-  <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if(loader) {
-          loader.classList.add('hidden');
-        }
-      }, 2100);
-      setTimeout(() => {
-        const container = document.getElementById('mainContainer');
-        if(container) {
-          container.classList.add('animate-active');
-        }
-      }, 2150);
-    });
-
-    function toggleModal(modalId, show) {
-      const modal = document.getElementById(modalId);
-      if (show) {
-        modal.style.display = 'flex';
-      } else {
-        modal.style.display = 'none';
-      }
-    }
-
-    function copyLink() {
-      const url = 'https://hylten.github.io/Hylten-Business-Card/';
-      navigator.clipboard.writeText(url).then(() => {
-        const btn = document.querySelector('.copy-link-btn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Copied!';
-        btn.style.backgroundColor = '#4CAF50';
-        btn.style.color = '#fff';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.backgroundColor = '#ffffff';
-          btn.style.color = '#000000';
-        }, 2000);
-      });
-    }
-
-    // LinkedIn transition animation
-    let pendingLink = null;
-    function handleLinkClick(element, delay) {
-      const url = element.href;
-      const overlay = document.getElementById('linkOverlay');
-      overlay.classList.add('active');
-      
-      setTimeout(() => {
-        overlay.classList.remove('active');
-        window.open(url, '_blank');
-      }, delay);
-      
-      return false;
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
